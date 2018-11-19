@@ -15,9 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let index = Math.floor(Math.random() * $unitTabs.length)
   $unitTabs.eq(index).tab("show")
 
-  // Contact form action
-  $("#contact-form").attr("action", `mailto:${INFO.contact.email}`)
-
   // Copyright date
   if(today.getFullYear() > 2018) $("#copyright-date").innerText += " - " + today.getFullYear()
 
