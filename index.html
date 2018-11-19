@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sans Souci | Pensacola Beach, Florida</title>
+  <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="./res/js/data.js"></script>
+<script src="./res/js/index.js"></script>
+<body>
+  <nav id="navbar" class="navbar navbar-expand-md navbar-light bg-light">
+    <a href="#header" class="navbar-brand">Sans Souci</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbar-content">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a href="#header" class="nav-link">Home</a>
+        </li>
+        <!-- Other links generated in JS -->
+      </ul>
+    </div>
+  </nav>
+  <div id="content">
+    <header id="header">
+      <div class="container">
+        <div id="header-block" class="border border-primary text-center m-5">
+          <i id="header-bg" class="fas fa-sun"></i>
+          <div id="header-text">
+            <h1 class="title">Sans Souci</h1>
+            <p class="subtitle">Pensacola Beach, FL</p>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="about" class="section">
+      <div class="container mt-3">
+        <h2 class="text-center mt-5">About</h2>
+        <div class="content">
+          <p>White sand beach and crystal clear blue ocean are just outside your door for long beachside strolls or for feeling waves lap across your body. Watch for dolphins while lounging on your private covered extended beachfront balcony.</p>
+
+          <p>Enjoy a dip in the large shared beach side pool or relax in the shared hot tub. Sans Souci is a gated condominium and offers an air conditioned shared laundry facility with multiple washers and dryers, a reserved covered parking space just steps to the elevator, a gated open parking lot, and a convenience store with a DVD rental box and popular restaurant/bar Peg Leg Pete's with live entertainment directly across the street. Peg Leg Pete's is a family oriented restaurant and has a playground for young children with adjacent casual outdoor dining. Shopping, water sport rentals and more restaurants and bars are a just few blocks away. The Pensacola Naval Air Museum is another popular attraction in the area.</p>
+          
+          <p>With the gulf and beach at your front door and the bay at your back door, this is the perfect place to soothe your soul while offering numerous entertainment options for activity seekers.</p>
+          
+          <p>Come enjoy our beautiful beach and sunsets! Contact us today for questions and reservations.</p>
+        </div>
+      </div>
+    </section>
+    <section id="units" class="section">
+      <div class="container mt-3">
+        <h2 class="text-center mt-5">Units</h2>
+        <ul id="unit-tabs" class="nav nav-pills nav-justified">
+          <!-- Tabs generated in JS -->
+        </ul>
+  
+        <div id="unit-cards" class="tab-content">
+          <!-- Cards generated in JS -->
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="section">
+      <div class="container mt-3">
+        <h2 class="text-center mt-5">Contact</h2>
+        <form id="contact-form" action="" id="contact-form" method="post" netlify>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                <label for="contact-first-name">First name</label>
+                <input type="text" id="contact-first-name" class="form-control" name="First name" required />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                <label for="contact-last-name">Last name</label>
+                <input type="text" id="contact-last-name" class="form-control" name="Last name" required />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Email address</label>
+            <input type="email" id="contact-email" class="form-control" name="Email" required />
+          </div>
+          <div class="form-group">
+            <label for="contact-phone">Phone number</label>
+            <input type="text" id="contact-phone" class="form-control" name="Phone" required />
+          </div>
+          <div class="form-row">
+            <div class="col">
+              <div class="form-group">
+                  <label for="contact-start-date">From...</label>
+                  <input type="date" id="contact-start-date" class="form-control" required />
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-group">
+                  <label for="contact-end-date">To...</label>
+                  <input type="date" id="contact-end-date" class="form-control" required />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contact-unit">Unit</label>
+            <select name="Unit" id="contact-unit" class="form-control">
+              <option>Select...</option>
+              <!-- Options generated in JS -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea name="Message" id="contact-message" class="form-control" cols="60" rows="6">Hello! I am interested in renting this unit. Please send me some information about rates and availability.</textarea>
+          </div>
+          <input type="submit" class="btn btn-success btn-block" value="Submit">
+        </form>
+      </div>
+    </section>
+  </div>
+  <footer id="footer" class="bg-primary text-light text-center">
+    <div id="phone">
+      <i class="fas fa-phone fa-flip-horizontal"></i> <a href="tel:+18509348347" class="phone text-light">(850) 934-8347</a>
+    </div>
+    <div id="copyright">
+      Copyright &copy; <span id="copyright-date">2018</span> Sunburst Realty
+    </div>
+    <div id="address">
+      <address>999 Fort Pickens Rd. Pensacola Beach, FL 32561</address>
+    </div>
+  </footer>
+</body>
+</html>

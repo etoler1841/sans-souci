@@ -1,0 +1,164 @@
+body {
+  min-height: 100vh;
+}
+
+#navbar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  overflow-x: hidden;
+  z-index: 900;
+}
+
+#navbar-content ul {
+  text-transform: capitalize
+}
+
+header {
+  width: 100%;
+  background-color: rgba(60, 60, 60, 10%);
+}
+
+#header {
+  height: 100vh;
+  position: relative;
+  padding-top: 5rem;
+  background: url("./res/img/exterior.jpg");
+  background-size: cover;
+  background-position: 25%;
+}
+
+#header-block {
+  height: 80vw;
+  max-height: 50vh;
+  max-width: 80vw;
+  position: relative;
+  background-color: rgba(255, 255, 255, 85%)
+}
+
+#header-bg {
+  color: hsl(40, 100%, 75%);
+  position: absolute;
+  top: 30%;
+  left: 25%;
+  font-size: 15rem;
+  transform: translate(-25%, -30%);
+  z-index: 10;
+}
+
+#header-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+#header-text .title {
+  /* font-family: "Indie Flower", cursive; */
+  color: hsl(40, 80%, 70%);
+  text-shadow: 5px 5px 10px #666, 
+               1px 1px 0 #333, 
+               -1px 1px 0 #333, 
+               1px -1px 0 #333, 
+               -1px -1px 0 #333;
+  font-weight: bold;
+  font-size: 4rem;
+  line-height: .9em;
+}
+
+#header-text .subtitle {
+  color: #333;
+  font-size: 2rem;
+}
+
+#content {
+  padding-bottom: 7rem;
+}
+
+section {
+  clear: both;
+}
+
+h2 {
+  font-size: 2.3rem;
+}
+
+.lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox .unit-image {
+  width: 80%;
+  
+}
+
+.lightbox .unit-image img {
+  max-height: 50vh;
+  max-width: 80%;
+  height: auto;
+  width: auto;
+}
+
+.lightbox .fas:hover {
+  cursor: pointer;
+  position: relative;
+  top: -1px;
+  text-shadow: 0px 1px 5px #999;
+}
+
+.card-img {
+  width: 80%;
+  height: auto;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  font-size: .9rem;
+  width: 100vw;
+  overflow-x: hidden;
+  margin-bottom: -.9rem;
+  font-size: .9em;
+}
+
+#phone {
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+@media (min-width: 992px) {
+  #header-text .title {
+    font-size: 7rem;
+  }
+  
+  #header-text .subtitle {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #header-text .title {
+    font-size: 5rem;
+  }
+  
+  #header-text .subtitle {
+    font-size: 1.5rem;
+  }
+
+  #phone {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 350px) {
+  #header-text .title {
+    font-size: 4rem;
+  }
+  
+  #header-text .subtitle {
+    font-size: 1.2rem;
+  }
+}
