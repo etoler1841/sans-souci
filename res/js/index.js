@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let pos = $(document).scrollTop()
     let sections = $(".section")
     let current = "home"
-    if(pos + $(window).height() == $("body").height()) {
+    if(pos + $(window).height() >= $("body").height()) {
       current = $("#section:last-child").attr("id")
     } else {
       for(let section of sections) {
         let sectPos = $(section).position().top
-        if(sectPos <= pos) current = $(section).attr("id")
+        if(sectPos <= pos + $("#navbar").height() + 17) current = $(section).attr("id")
       }
     }
     if(current !== active) {
@@ -53,9 +53,6 @@ const createNavigation = (sections) => {
   let navLinks = []
   for(let section of sections) {
     let sectionName = $(section).attr("id")
-    $(section).before(
-      `<div id="${sectionName}-stop" class="scroll-stop" style="position: relative; top: -${$("#navbar").height() + 16}px"></div>`
-    )
     navLinks.push(
       `<li class="nav-item">
         <a href="#${sectionName}" class="nav-link">${sectionName}</a>
@@ -68,7 +65,8 @@ const createNavigation = (sections) => {
 const navScroll = e => {
   e.preventDefault()
   let target = $(e.target).attr("href")
-  $(window).scrollTop($(target).position().top - $("#navbar").height() - 16)
+  let dropdownHeight = $("#navbar .navbar-collapse.show").height()
+  $(window).scrollTop($(target).position().top - $("#navbar").height() + (dropdownHeight ? dropdownHeight : 0) - 16)
 }
 
 const createUnits = () => {
