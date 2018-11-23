@@ -88,29 +88,13 @@ h2 {
   font-size: 2.3rem;
 }
 
-.lightbox {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox .unit-image {
-  width: 80%;
-  
-}
-
-.lightbox .unit-image img {
-  max-height: 50vh;
-  max-width: 80%;
+.tab-pane .thumbnail {
+  max-height: 5rem;
+  max-width: 7rem;
   height: auto;
   width: auto;
-}
-
-.lightbox .fas:hover {
-  cursor: pointer;
-  position: relative;
-  top: -1px;
-  text-shadow: 0px 1px 5px #999;
+  margin: 1rem;
+  border-radius: 5px;
 }
 
 .card-img {
@@ -131,6 +115,15 @@ footer {
 #phone {
   font-size: 1.1em;
   font-weight: bold;
+}
+
+@media (min-width: 1200px) {
+  .tab-pane .thumbnail {
+    max-height: 10rem;
+    max-width: 12rem;
+    height: auto;
+    width: auto;
+  }
 }
 
 @media (min-width: 992px) {

@@ -18,9 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // Copyright date
   if(today.getFullYear() > 2018) $("#copyright-date").innerText += " - " + today.getFullYear()
 
-  // Determine screen size and adjust some elements' classes
-  displaySize($(window).width())
-
   // Event listeners
   $("#navbar .nav-link").click(e => {
     $("#navbar .nav-item.active").removeClass("active")
@@ -50,32 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   })
-
-  $(".lightbox .fas").click(e => {
-    let button = $(e.target)
-    let currentUnit = parseInt($(button).parent().parent().parent().attr("id").replace("unit-", ""))
-    let currentImg = $(button).siblings(".unit-image").children().attr("src")
-    let imgNum = parseInt(currentImg.substr(currentImg.lastIndexOf("/") + 1, 1))
-    let maxImg = 0
-    for(unit of INFO.units) {
-      if(unit.num === currentUnit) maxImg = unit.photos
-    }
-    let newImg
-    switch(true) {
-      case $(button).hasClass("fa-chevron-circle-left"):
-        newImg = imgNum <= 1 ? maxImg : imgNum - 1
-        setUnitImage(currentUnit, newImg)
-        break
-      case $(button).hasClass("fa-chevron-circle-right"):
-        newImg = imgNum >= maxImg ? 1 : imgNum + 1
-        setUnitImage(currentUnit, newImg)
-        break
-      default:
-        return
-    }
-  })
-
-  // $(window).resize(() => {console.log($(window).width())})
 })
 
 const createNavigation = (sections) => {
@@ -114,11 +85,7 @@ const createUnits = () => {
     cards.push(
       `<div id="unit-${unit.num}" class="tab-pane fade" role="tabpanel">
         <div class="container my-3 text-center">
-          <div class="lightbox">
-            <i class="fas fa-chevron-circle-left fa-3x"></i>
-            <div class="unit-image"></div>
-            <i class="fas fa-chevron-circle-right fa-3x"></i>
-          </div>
+          ${createUnitImages(unit)}
         </div>
       </div>`
     )
@@ -126,18 +93,17 @@ const createUnits = () => {
       `<option value="${unit.num}">#${unit.num}</option>`
     )
   }
-  $("#unit-tabs").html(tabs.join(""))
-  $("#unit-cards").html(cards.join(""))
-  $("#contact-unit").append(options.join(""))
-  for(let unit of INFO.units) {
-    setUnitImage(unit.num, 1)
+  $("#unit-tabs").html(tabs.join("\n"))
+  $("#unit-cards").html(cards.join("\n"))
+  $("#contact-unit").append(options.join("\n"))
+}
+
+const createUnitImages = unit => {
+  let images = []
+  for(let i = 1; i <= unit.photos; i++) {
+    images.push(
+      `<a href="./res/img/${unit.num}/${i}.jpg" data-lightbox="unit-${unit.num}"><img src="./res/img/${unit.num}/${i}.jpg" class="thumbnail" alt="" /></a>`
+    )
   }
-}
-
-const setUnitImage = (unit, img) => {
-  $(`#unit-${unit} .unit-image`).html(`<img src="./res/img/${unit}/${img}.jpg" class="card-img m-3" alt="" />`)
-}
-
-const displaySize = width => {
-
+  return images.join("\n")
 }
