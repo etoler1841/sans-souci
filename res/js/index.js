@@ -22,20 +22,25 @@ document.addEventListener("DOMContentLoaded", () => {
   displaySize($(window).width())
 
   // Event listeners
-  $(".nav-link").click(e => {
-    $(".nav-item.active").removeClass("active")
-    $(e.currentTarget).parent().addClass("active")
+  $("#navbar .nav-link").click(e => {
+    $("#navbar .nav-item.active").removeClass("active")
+    $(e.target).parent().addClass("active")
+    navScroll(e)
     $("#navbar-content").collapse("hide")
   })
 
   $(document).scroll(() => {
     let active = $("#navbar .nav-item.active").children(".nav-link").text()
     let pos = $(document).scrollTop()
-    let stops = $(".scroll-stop")
+    let sections = $(".section")
     let current = "home"
-    for(let stop of stops) {
-      let stopPos = $(stop).position()
-      if(stopPos.top <= pos) current = $(stop).attr("id").replace("-stop", "")
+    if(pos + $(window).height() == $("body").height()) {
+      current = $("#section:last-child").attr("id")
+    } else {
+      for(let section of sections) {
+        let sectPos = $(section).position().top
+        if(sectPos <= pos) current = $(section).attr("id")
+      }
     }
     if(current !== active) {
       $("#navbar .nav-item.active").removeClass("active")
@@ -47,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   $(".lightbox .fas").click(e => {
-    let button = $(e.currentTarget)
+    let button = $(e.target)
     let currentUnit = parseInt($(button).parent().parent().parent().attr("id").replace("unit-", ""))
     let currentImg = $(button).siblings(".unit-image").children().attr("src")
     let imgNum = parseInt(currentImg.substr(currentImg.lastIndexOf("/") + 1, 1))
@@ -82,11 +87,17 @@ const createNavigation = (sections) => {
     )
     navLinks.push(
       `<li class="nav-item">
-        <a href="#${sectionName}-stop" class="nav-link">${sectionName}</a>
+        <a href="#${sectionName}" class="nav-link">${sectionName}</a>
       </li>`
     )
   }
   $("#navbar-content ul").append(navLinks.join(""))
+}
+
+const navScroll = e => {
+  e.preventDefault()
+  let target = $(e.target).attr("href")
+  $(window).scrollTop($(target).position().top - $("#navbar").height() - 16)
 }
 
 const createUnits = () => {
