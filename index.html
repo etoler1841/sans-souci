@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
+  <!-- <link rel="stylesheet" href="./input-masking/masking-input.css"/> -->
 </head>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -93,7 +94,7 @@
           </div>
           <div class="form-group">
             <label for="contact-phone">Phone number</label>
-            <input type="text" id="contact-phone" class="form-control" name="Phone" required />
+            <input type="tel" id="contact-phone" class="form-control masked" placeholder="XXX-XXX-XXXX" pattern="\d{3}-\d{3}-\d{4}" name="Phone" required />
           </div>
           <div class="form-row">
             <div class="col">
@@ -111,8 +112,8 @@
           </div>
           <div class="form-group">
             <label for="contact-unit">Unit</label>
-            <select name="Unit" id="contact-unit" class="form-control">
-              <option>Select...</option>
+            <select name="Unit" id="contact-unit" class="form-control" required>
+              <option value="" disabled selected>Select...</option>
               <!-- Options generated in JS -->
             </select>
           </div>
@@ -137,4 +138,5 @@
     </div>
   </footer>
 </body>
+<script src="./input-masking/masking-input.js" data-autoinit="true"></script>
 </html>

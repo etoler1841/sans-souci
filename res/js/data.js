@@ -28,8 +28,5 @@ const INFO = {
       num: 604,
       photos: 7
     }
-  ],
-  contact: {
-    email: "etoler1841@gmail.com"
-  }
+  ]
 }
